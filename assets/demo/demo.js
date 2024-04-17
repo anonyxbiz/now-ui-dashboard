@@ -2,40 +2,6 @@ let user_data = "";
 let shipped_products = "";
 
 // const loadDataFromLocalstorage = async () => 
-async function user_analytics(username) {
-    response = await fetch('/api/v1/analytics/artist', {
-        method: 'POST',
-        headers: {
-            'accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            'username': username,
-        })
-
-    });
-
-    try {
-        if (response.ok) {
-            const userdata = await response.json();
-            if (userdata) {
-                data = userdata;
-
-                //localStorage.setItem("cookie", cookie);
-                //window.location.href = "/";
-                return data;
-                console.log(shipped_products);
-            } else {
-                return username
-            }
-        }
-    }
-    catch (e) {
-        console.log(e);
-    }
-
-}
-
 function chart_user_data() {
     const user_data = {
         "username": "breeder_lw",
@@ -53,14 +19,41 @@ function chart_user_data() {
     return user_data;
 }
 
+async function user_analytics(username) {
+    response = await fetch('/api/v1/analytics/artist', {
+        method: 'POST',
+        headers: {
+            'accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            'username': username,
+        })
+
+    });
+
+    try {
+        if (response.ok) {
+            const userdata = await response.json();
+            const data = userdata;
+            return data;
+            
+        }
+    }
+    catch (e) {
+        console.log(e);
+    }
+
+}
+
 const u_a_a = async () => {
     try {
         const username = "breeder_lw";
         data = await user_analytics(username);
-        
         user_data = data;
+        console.log(user_data);
 
-        //user_data = chart_user_data();
+        user_data = chart_user_data();
 
     } catch (e) {
         console.log(e)
