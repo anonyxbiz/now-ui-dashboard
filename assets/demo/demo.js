@@ -35,8 +35,8 @@ async function user_analytics(username) {
     try {
         if (response.ok) {
             const userdata = await response.json();
-            const data = userdata;
-            return data;
+            const shipped_products = userdata;
+            return shipped_products;
             
         }
     }
@@ -49,20 +49,18 @@ async function user_analytics(username) {
 const u_a_a = async () => {
     try {
         const username = "breeder_lw";
-        const data = await user_analytics(username);
-        user_data = data;
-        console.log(user_data);
-
-        //user_data = chart_user_data();
+        user_analytics(username);
+        
+        user_data = chart_user_data();
 
     } catch (e) {
         console.log(e)
     }
 }
 u_a_a();
-
+console.log(shipped_products);
 try {
-    console.log(user_data);
+    console.log(shipped_products);
     var statements = document.getElementById("statements");
     statements.innerHTML = user_data.statements;
 } catch (e) {
