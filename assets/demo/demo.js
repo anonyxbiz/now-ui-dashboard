@@ -54,17 +54,16 @@ function chart_user_data() {
 
 const u_a_a = async () => {
     try {
-        user_data = chart_user_data();
+        const username = "breeder_lw";
+        const user_data = await user_analytics(username);
+        
+        //user_data = chart_user_data();
         var statements = document.getElementById("statements");
-        statements.innerHTML = user_data.statements;
+        statements.innerHTML = user_data.statements;    
     
     } catch (e) {
         console.log(e)
-    }
-        
-    const username = "breeder_lw";
-    const u_data = await user_analytics(username);
-    console.log(u_data);
+    }  
 }
 u_a_a();
 
