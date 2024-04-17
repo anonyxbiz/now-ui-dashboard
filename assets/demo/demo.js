@@ -19,10 +19,11 @@ async function user_analytics(username) {
         if (response.ok) {
             const userdata = await response.json();
             if (userdata) {
-                shipped_products = userdata;
+                //shipped_products = userdata;
 
                 //localStorage.setItem("cookie", cookie);
                 //window.location.href = "/";
+                return userdata;
                 console.log(shipped_products);
             } else {
                 return username
