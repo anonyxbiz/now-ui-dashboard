@@ -14,7 +14,7 @@ def user_dashboard(user):
         "analytics_labels": ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"],
         "analytics_label": "Streams",
         "email_stats_label": "Stats",
-        "email_stats_labels": ["12pm,", "3pm", "6pm", "9pm", "12am", "3am", "6am", "9am"],
+        "email_stats_labels": ["12pm", "3pm", "6pm", "9pm", "12am", "3am", "6am", "9am"],
         "email_stats": [40, 500, 650, 700, 1200, 1250, 1300, 1900],
         "latest_releases_data": [542, 480, 430, 550, 530, 453, 380, 434, 568, 610, 700, 630],
         "latest_releases_labels": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
