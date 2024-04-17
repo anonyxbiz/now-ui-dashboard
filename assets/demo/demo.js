@@ -3,7 +3,19 @@ let shipped_products = "";
 
 // const loadDataFromLocalstorage = async () => 
 function chart_user_data() {
-    const user_data = {
+    const user_data = fetch('/api/v1/analytics/artist', {
+        method: 'POST',
+        headers: {
+            'accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            'username': "username",
+        })
+
+    }).json();
+    
+    const user_data_old = {
         "username": "breeder_lw",
         "analytics": [200, 150, 100, 190, 130, 90, 150, 160, 120, 140, 190, 95],
         "analytics_labels": ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"],
@@ -57,14 +69,12 @@ const u_a_a = async () => {
         console.log(e)
     }
 }
-const username = "breeder_lw";
-user_analytics(username);
+
 user_data = chart_user_data();
-//u_a_a();
-console.log(shipped_products);
+console.log(user_data);
 
 try {
-    console.log(shipped_products);
+    console.log(user_data);
     var statements = document.getElementById("statements");
     statements.innerHTML = user_data.statements;
 } catch (e) {
