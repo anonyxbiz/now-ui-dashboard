@@ -49,11 +49,11 @@ async function user_analytics(username) {
 const u_a_a = async () => {
     try {
         const username = "breeder_lw";
-        data = await user_analytics(username);
+        const data = await user_analytics(username);
         user_data = data;
         console.log(user_data);
 
-        user_data = chart_user_data();
+        //user_data = chart_user_data();
 
     } catch (e) {
         console.log(e)
