@@ -1,6 +1,39 @@
 let user_data = "";
 let shipped_products = "";
 
+// const loadDataFromLocalstorage = async () => 
+async function user_analytics(username) {
+    response = await fetch('/api/v1/analytics/artist', {
+        method: 'POST',
+        headers: {
+            'accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            'username': username,
+        })
+
+    });
+
+    try {
+        if (response.ok) {
+            const userdata = await response.json();
+            if (userdata) {
+                shipped_products = userdata;
+
+                //localStorage.setItem("cookie", cookie);
+                //window.location.href = "/";
+                console.log(shipped_products);
+            } else {
+                return username
+            }
+        }
+    }
+    catch (e) {
+        console.log(e);
+    }
+
+}
 
 function chart_user_data() {
     const user_data = {
@@ -19,14 +52,22 @@ function chart_user_data() {
     return user_data;
 }
 
-try {
-    user_data = chart_user_data();
-    var statements = document.getElementById("statements");
-    statements.innerHTML = user_data.statements;    
-
-} catch (e) {
-    console.log(e)
+const u_a_a = async () => {
+    try {
+        user_data = chart_user_data();
+        var statements = document.getElementById("statements");
+        statements.innerHTML = user_data.statements;
+    
+    } catch (e) {
+        console.log(e)
+    }
+        
+    const username = "breeder_lw";
+    const u_data = await user_analytics(username);
+    console.log(u_data);
 }
+u_a_a();
+
 demo = {
     initPickColor: function() {
         $('.pick-class-label').click(function() {
@@ -376,7 +417,7 @@ demo = {
         gradientFill = ctx.createLinearGradient(0, 170, 0, 50);
         gradientFill.addColorStop(0, "rgba(128, 182, 244, 0)");
         gradientFill.addColorStop(1, hexToRGB('#18ce0f', 0.4));
-        
+
         // All products
         myChart = new Chart(ctx, {
             type: 'line',
