@@ -19,11 +19,11 @@ async function user_analytics(username) {
         if (response.ok) {
             const userdata = await response.json();
             if (userdata) {
-                //shipped_products = userdata;
+                data = userdata;
 
                 //localStorage.setItem("cookie", cookie);
                 //window.location.href = "/";
-                return userdata;
+                return data;
                 console.log(shipped_products);
             } else {
                 return username
@@ -56,17 +56,25 @@ function chart_user_data() {
 const u_a_a = async () => {
     try {
         const username = "breeder_lw";
-        user_data = await user_analytics(username);
+        data = await user_analytics(username);
         
+        user_data = data;
+
         //user_data = chart_user_data();
-        var statements = document.getElementById("statements");
-        statements.innerHTML = user_data.statements;    
-    
+
     } catch (e) {
         console.log(e)
-    }  
+    }
 }
 u_a_a();
+
+try {
+    console.log(user_data);
+    var statements = document.getElementById("statements");
+    statements.innerHTML = user_data.statements;
+} catch (e) {
+    throw e
+}
 
 demo = {
     initPickColor: function() {
