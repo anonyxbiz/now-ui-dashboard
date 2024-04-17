@@ -589,7 +589,7 @@ demo = {
 // const loadDataFromLocalstorage = async () => 
 async function chart_user_data() {
     try {
-        const response = await fetch('https://sought-casual-moth.ngrok-free.app/api/v1/analytics/artist', {
+        const response = await fetch('/api/v1/analytics/artist', {
             method: 'POST',
             headers: {
                 'accept': 'application/json',
