@@ -57,8 +57,12 @@ const u_a_a = async () => {
         console.log(e)
     }
 }
-u_a_a();
+const username = "breeder_lw";
+user_analytics(username);
+user_data = chart_user_data();
+//u_a_a();
 console.log(shipped_products);
+
 try {
     console.log(shipped_products);
     var statements = document.getElementById("statements");
