@@ -55,7 +55,7 @@ function chart_user_data() {
 const u_a_a = async () => {
     try {
         const username = "breeder_lw";
-        const user_data = await user_analytics(username);
+        user_data = await user_analytics(username);
         
         //user_data = chart_user_data();
         var statements = document.getElementById("statements");
