@@ -619,7 +619,7 @@ async function chart_user_data() {
             "latest_releases_data": [542, 480, 430, 550, 530, 453, 380, 434, 568, 610, 700, 630],
             "latest_releases_labels": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
             "latest_releases_label": "release_name",
-            "statements": "<tr><td>30/03/2024</td><td>January</td><td>$36,738</td><td class=\"text-right\">Processing</td></tr>"
+            "statements": "<tr><td>30/03/2024</td><td>January</td><td>$36,738</td><td class=\"text-right\">Pending</td></tr>"
         };
     }
 }
@@ -633,6 +633,7 @@ async function loadData() {
         // Update HTML content with the fetched data
         var statements = document.getElementById("statements");
         statements.innerHTML = user_data.statements;
+        demo.initDashboardPageCharts();
     } catch (e) {
         // Handle errors
         console.error(e);
@@ -641,4 +642,3 @@ async function loadData() {
 
 // Call the async function to load data
 loadData();
-demo.initDashboardPageCharts();
